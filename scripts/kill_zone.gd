@@ -1,12 +1,16 @@
 extends Area2D
 
 
+@onready var player = %Player
+
 @onready var timer = $Timer
 func _on_body_entered(body):
 	print('died')
-	timer.start()
+	Engine.time_scale = 0.5
+
+	body.respawn()
 	 
 
-func _on_timer_timeout():
-	get_tree().reload_current_scene()
+
+	
 	

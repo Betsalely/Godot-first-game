@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://be1wv7ywrwg0r"]
+
+[ext_resource type="Texture2D" uid="uid://cy4cpn7mjdivh" path="res://assets/brackeys_platformer_assets/sprites/Heart.png" id="1_0gwfe"]
+[ext_resource type="Script" path="res://scripts/heart.gd" id="1_0i4sr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef8cl"]
+atlas = ExtResource("1_0gwfe")
+region = Rect2(17, 36, 22, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gkn5"]
+atlas = ExtResource("1_0gwfe")
+region = Rect2(39, 36, 22, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_637th"]
+atlas = ExtResource("1_0gwfe")
+region = Rect2(61, 36, 22, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41ot1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef8cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gkn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_637th")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rneh7"]
+size = Vector2(21, 20.5)
+
+[node name="Heart" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_0i4sr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_41ot1")
+frame_progress = 0.806937
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.75)
+shape = SubResource("RectangleShape2D_rneh7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk0rxfr5h3nmm"]
+
+[ext_resource type="Texture2D" uid="uid://dkui6b050duff" path="res://assets/brackeys_platformer_assets/sprites/platforms.png" id="1_wjl3a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2b3c"]
+size = Vector2(32, 8)
+
+[node name="TrapDoor" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wjl3a")
+region_enabled = true
+region_rect = Rect2(15.8644, 16.4894, 32.5218, 8.75587)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_i2b3c")
+one_way_collision = true
